@@ -4,9 +4,11 @@ const {connection} =require("./config/db")
 const {userRouter} = require("./routes/user.routes")
 const {notesRouter} = require("./routes/note.route")
 const cors = require("cors")
+const bodyParser = require("body-parser");
 const app = express();
 app.use(express.json());
 app.use(cors());
+app.use(bodyParser.json());
 app.use("/users",userRouter)
 app.use("/notes", notesRouter)
 
